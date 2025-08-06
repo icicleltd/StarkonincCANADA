@@ -37,9 +37,9 @@ const Home = () => {
 
           <div className="flex gap-4">
             <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg">
-              What We Have
+              Service
             </Button>
-            <Button
+            {/* <Button
               variant="outline"
               className={`px-8 py-3 rounded-lg font-medium text-lg border-2 ${
                 isDark
@@ -48,7 +48,7 @@ const Home = () => {
               }`}
             >
               Our Products
-            </Button>
+            </Button> */}
           </div>
         </div>
 

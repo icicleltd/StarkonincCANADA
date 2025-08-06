@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Menu, Phone, Mail, MessageCircle, Sun, Moon } from "lucide-react"
+import { Menu, Phone, Mail, MessageCircle, Sun, Moon, LogIn } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -55,37 +55,45 @@ export default function TopNavbar() {
               </Button>
             </SheetTrigger>
             <SheetContent>
-              <div className="flex flex-col space-y-4 mt-8">
-                <Button
-                  variant="ghost"
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="justify-start"
-                >
-                  {theme === "dark" ? <Sun className="h-5 w-5 mr-2" /> : <Moon className="h-5 w-5 mr-2" />}
-                  Toggle Theme
-                </Button>
+  <div className="flex flex-col space-y-4 mt-8">
+    <Button
+      variant="ghost"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="justify-start"
+    >
+      {theme === "dark" ? <Sun className="h-5 w-5 mr-2" /> : <Moon className="h-5 w-5 mr-2" />}
+      Toggle Theme
+    </Button>
 
-                <Button variant="ghost" className="justify-start">
-                  <Phone className="h-5 w-5 mr-2" />
-                  Contact
-                </Button>
+    <Button variant="ghost" className="justify-start">
+      <Phone className="h-5 w-5 mr-2" />
+      Contact
+    </Button>
 
-                <Button variant="ghost" className="justify-start">
-                  <Mail className="h-5 w-5 mr-2" />
-                  Email
-                </Button>
+    <Button variant="ghost" className="justify-start">
+      <Mail className="h-5 w-5 mr-2" />
+      Email
+    </Button>
 
-                <Button variant="ghost" className="justify-start">
-                  <MessageCircle className="h-5 w-5 mr-2" />
-                  WhatsApp
-                </Button>
+    <Button variant="ghost" className="justify-start">
+      <MessageCircle className="h-5 w-5 mr-2" />
+      WhatsApp
+    </Button>
 
-                <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg">
-  Appointment
-</Button>
+    <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg">
+      Appointment
+    </Button>
 
-              </div>
-            </SheetContent>
+    {/* Updated Log In Button */}
+    <Button
+      variant="ghost"
+      className="justify-start flex items-center text-lg font-medium"
+    >
+      <LogIn className="h-5 w-5 mr-2" />
+      Log In
+    </Button>
+  </div>
+</SheetContent>
           </Sheet>
         </div>
       </div>
