@@ -2,6 +2,7 @@
 
 import LeftSidebar from "@/component/LeftSideebar"
 import About from "@/component/sections/About"
+import Achievement from "@/component/sections/Achievement"
 import Contact from "@/component/sections/Contact"
 import Home from "@/component/sections/Home"
 import Service from "@/component/sections/Service"
@@ -65,11 +66,16 @@ export default function Page() {
           <div className="w-screen snap-start">
             <Home />
           </div>
-          <div className="w-screen snap-start">
-            <About />
-          </div>
+
           <div className="w-screen snap-start">
             <Service />
+          </div>
+          <div className="w-screen snap-start">
+            <Achievement />
+          </div>
+
+          <div className="w-screen snap-start">
+            <About />
           </div>
           <div className="w-screen snap-start">
             <Contact />
