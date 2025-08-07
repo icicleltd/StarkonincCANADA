@@ -60,7 +60,6 @@ export default function Page() {
     <div className="min-h-screen bg-background">
       <TopNavbar />
       <LeftSidebar />
-
       <div className="pl-16">
         <div id="scroll-container" className="flex h-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth">
           <div className="w-screen snap-start">
