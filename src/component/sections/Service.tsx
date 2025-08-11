@@ -23,7 +23,7 @@ import {
   faMoneyBillTransfer,
   faBuildingColumns,
   faCircleQuestion,
-  
+
   faArrowDown,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -198,11 +198,10 @@ const Service = () => {
 
   return (
     <div
-      className={`w-screen min-h-screen flex items-center justify-center transition-colors duration-300 ${
-        isDark ? "bg-background/80" : "bg-white"
-      }`}
+      className={`w-screen min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? "bg-background/80" : "bg-white"
+        }`}
     >
-      <div className="w-full py-12 px-4 md:px-8 lg:px-16 flex items-center justify-center">
+      <div id="services-section" className="w-full py-12 px-4 md:px-8 lg:px-16 flex items-center justify-center  ">
         <div className="container mx-auto grid lg:grid-cols-[1fr_3fr] gap-12 items-center">
           {/* Left: Text */}
           <div className="space-y-4 text-center lg:text-left">
@@ -210,9 +209,8 @@ const Service = () => {
               Our Services
             </h2>
             <h1
-              className={`text-4xl md:text-5xl font-bold leading-tight ${
-                isDark ? "text-white" : "text-black"
-              }`}
+              className={`text-4xl md:text-5xl font-bold leading-tight ${isDark ? "text-white" : "text-black"
+                }`}
             >
               {activeService.heading}
             </h1>
@@ -226,30 +224,27 @@ const Service = () => {
             {/* Buttons */}
             <div className="flex justify-center lg:justify-end gap-4 overflow-x-auto pb-2">
               {services.map((service) => (
-           <Button
-  key={service.id}
-  onClick={() => setActiveServiceId(service.id)}
-  className={`
+                <Button
+                  key={service.id}
+                  onClick={() => setActiveServiceId(service.id)}
+                  className={`
     px-6 py-3 rounded-lg text-lg font-medium transition-all duration-200 flex items-center justify-center gap-2
-    ${
-      activeServiceId === service.id
-        ? "bg-gradient-to-r from-orange-500 to-yellow-500 text-white shadow-md"
-        : `${
-            isDark
-              ? "border border-orange-500 text-white bg-black hover:bg-orange-500"
-              : "border border-orange-500 text-black bg-white hover:bg-yellow-100"
-          }`
-    }
+    ${activeServiceId === service.id
+                      ? "bg-gradient-to-r from-orange-500 to-yellow-500 text-white shadow-md"
+                      : `${isDark
+                        ? "border border-orange-500 text-white bg-black hover:bg-orange-500"
+                        : "border border-orange-500 text-black bg-white hover:bg-yellow-100"
+                      }`
+                    }
   `}
->
-  {service.name}
-  <FontAwesomeIcon
-    icon={faArrowDown}
-    className={`ml-2 transition-transform duration-300 ease-in-out ${
-      activeServiceId === service.id ? "rotate-180" : "rotate-0"
-    }`}
-  />
-</Button>
+                >
+                  {service.name}
+                  <FontAwesomeIcon
+                    icon={faArrowDown}
+                    className={`ml-2 transition-transform duration-300 ease-in-out ${activeServiceId === service.id ? "rotate-180" : "rotate-0"
+                      }`}
+                  />
+                </Button>
 
 
 
@@ -271,31 +266,28 @@ const Service = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 via-red-500 to-orange-500 rounded-xl z-0"></div>
                     <Card
-  className={`relative z-10 ${
-    isDark ? "bg-black" : "bg-white"
-  } border-none rounded-xl flex flex-col items-center justify-start p-4 text-center h-[220px] max-h-[220px] overflow-hidden transition-all duration-300`}
->
-  <CardContent className="p-0 flex flex-col items-center justify-start gap-3 overflow-y-auto">
-    <FontAwesomeIcon
-      icon={icon}
-      className={`text-3xl ${isDark ? "text-white" : "text-black"}`}
-    />
-    <p
-      className={`text-base font-semibold ${
-        isDark ? "text-white" : "text-black"
-      }`}
-    >
-      {item.name}
-    </p>
-    <p
-      className={`text-sm ${
-        isDark ? "text-gray-400" : "text-gray-600"
-      } text-center`}
-    >
-      {item.dec}
-    </p>
-  </CardContent>
-</Card>
+                      className={`relative z-10 ${isDark ? "bg-black" : "bg-white"
+                        } border-none rounded-xl flex flex-col items-center justify-start p-4 text-center h-[220px] max-h-[220px] overflow-hidden transition-all duration-300`}
+                    >
+                      <CardContent className="p-0 flex flex-col items-center justify-start gap-3 overflow-y-auto">
+                        <FontAwesomeIcon
+                          icon={icon}
+                          className={`text-3xl ${isDark ? "text-white" : "text-black"}`}
+                        />
+                        <p
+                          className={`text-base font-semibold ${isDark ? "text-white" : "text-black"
+                            }`}
+                        >
+                          {item.name}
+                        </p>
+                        <p
+                          className={`text-sm ${isDark ? "text-gray-400" : "text-gray-600"
+                            } text-center`}
+                        >
+                          {item.dec}
+                        </p>
+                      </CardContent>
+                    </Card>
 
                   </div>
                 );

@@ -12,7 +12,7 @@ const achievements = [
         date: "2025-03-12",
         description:
             "Partnered with Toronto Mortgage Group to build a smart mortgage approval system, reducing processing time by over 60% for Canadian homeowners.",
-        image: "/mortgage.png",
+        image: "/1.png",
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const achievements = [
         date: "2025-02-28",
         description:
             "Delivered a centralized property management solution for Ontario Property Services, enhancing scheduling, maintenance tracking, and client communication.",
-        image: "/property-management.png",
+        image: "/2.png",
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const achievements = [
         date: "2025-01-19",
         description:
             "Developed a data visualization tool for Montreal Realty Advisors, empowering brokers with live market trends, listings, and neighborhood insights across Québec.",
-        image: "/real-estate.png",
+        image: "/3.png",
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ const achievements = [
         date: "2025-04-05",
         description:
             "Built a bilingual (English/French) tax filing portal for Vancouver Tax & Accounting, supporting hundreds of clients with seamless digital tax submission.",
-        image: "/tax.png",
+        image: "/4.png",
     }
 ];
 
@@ -55,7 +55,6 @@ const Achievement = () => {
 
     const currentAchievement = achievements[currentIndex]
 
-    // Format date (optional)
     const formatDate = (dateStr: string) => {
         const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
         return new Date(dateStr).toLocaleDateString(undefined, options)
@@ -63,9 +62,21 @@ const Achievement = () => {
 
     return (
         <div className="w-screen min-h-screen flex items-center justify-center bg-background/80 backdrop-blur-md py-20 px-6 transition-colors duration-500">
-            <div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 transition-all duration-700">
-                {/* Left: Text */}
-                <div className="flex-1 space-y-4 text-center md:text-left">
+            <div className="max-w-6xl w-full grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16 items-center transition-all duration-700">
+
+                {/* Left: Image (1/3 width on desktop) */}
+                <div className="flex justify-center">
+                    <Image
+                        src={currentAchievement.image}
+                        alt={currentAchievement.name}
+                        width={500}
+                        height={300}
+                        className="rounded-lg shadow-lg object-contain w-full h-auto invert dark:invert-0"
+                    />
+                </div>
+
+                {/* Right: Text (2/3 width on desktop) */}
+                <div className="space-y-4 text-center md:text-left">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
                         {currentAchievement.name}
                     </h2>
@@ -80,16 +91,6 @@ const Achievement = () => {
                     </blockquote>
                 </div>
 
-                {/* Right: Image */}
-                <div className="flex-1">
-                    <Image
-                        src={currentAchievement.image}
-                        alt={currentAchievement.name}
-                        width={500}
-                        height={300}
-                        className="rounded-lg shadow-lg object-contain w-full h-auto invert dark:invert-0"
-                    />
-                </div>
             </div>
         </div>
     )
