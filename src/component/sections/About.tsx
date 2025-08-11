@@ -61,7 +61,7 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="absolute top-[42vh] right-12 md:right-16 lg:right-16 w-full max-w-sm lg:max-w-md bg-white dark:bg-black/75 p-6 md:p-8 rounded-lg shadow-lg text-gray-800 dark:text-gray-200"
+          className="absolute top-[42vh] right-12 md:right-16 lg:right-16 w-full max-w-sm lg:max-w-md bg-white/75 dark:bg-black/75 p-6 md:p-8 rounded-lg shadow-lg text-gray-800 dark:text-gray-200"
         >
           <p className="mb-4">
             <strong>Company Overview:</strong><br />

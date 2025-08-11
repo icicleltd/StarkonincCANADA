@@ -13,8 +13,9 @@ import { useEffect, useState } from "react"
 
 const sections = [
   { id: "home", path: "/" },
-  { id: "about", path: "/about" },
   { id: "service", path: "/service" },
+  { id: "achievement", path: "/achievement" },
+  { id: "about", path: "/about" },
   { id: "contact", path: "/contact" },
 ]
 

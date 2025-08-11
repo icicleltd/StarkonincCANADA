@@ -5,10 +5,10 @@ const Contact = () => {
     <div className="w-screen min-h-screen flex flex-col items-center bg-background/80 backdrop-blur-md py-12 px-4">
       <div className="max-w-4xl w-full space-y-12">
         {/* Header Section */}
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-4 mt-14 mb-8">
           <h1 className="text-5xl font-bold">Contact Us</h1>
           <h2 className="text-3xl font-semibold">Hey! Let&apos;s Talk</h2>
-          <p className="text-lg">We&apos;re happy to answer your questions.</p>
+          {/* <p className="text-lg">We&apos;re happy to answer your questions.</p> */}
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
