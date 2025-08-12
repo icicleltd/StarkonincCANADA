@@ -17,7 +17,7 @@ export default function LeftSidebar() {
     <div className="fixed left-0 top-20 bottom-0 w-16 bg-background/80 backdrop-blur-md border-border z-40 hidden md:flex">
       <div className="flex flex-col items-center py-8 space-y-4">
         {/* Accent Line */}
-        <div className="w-1 h-16 bg-gradient-to-b from-red-500 via-orange-500 to-yellow-400 rounded-full"></div>
+        {/* <div className="w-1 h-16 bg-gradient-to-b from-red-500 via-orange-500 to-yellow-400 rounded-full"></div> */}
 
         {/* Social Icons with Right Tooltips */}
         <div className="flex flex-col space-y-3">

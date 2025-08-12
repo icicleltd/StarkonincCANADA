@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="max-w-4xl w-full space-y-12">
         {/* Header Section */}
         <div className="text-center space-y-4 mt-14 mb-8">
-          <h1 className="text-5xl font-bold">Contact Us</h1>
+          {/* <h1 className="text-5xl font-bold">Contact Us</h1> */}
           <h2 className="text-3xl font-semibold">Hey! Let&apos;s Talk</h2>
           {/* <p className="text-lg">We&apos;re happy to answer your questions.</p> */}
         </div>
@@ -100,7 +100,7 @@ const Contact = () => {
         </div>
 
         {/* Footer */}
-        <div className="pt-12 border-t border-gray-200 text-center text-sm text-gray-600">
+        <div className="pt-2 border-t border-gray-200 text-center text-sm text-gray-600">
           <p>Copyright © 2025 | All Rights Reserved   User Agreement   Privacy Policy</p>
         </div>
       </div>
