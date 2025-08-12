@@ -21,6 +21,20 @@ export default function TopNavbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
+  // New state for Appointment Sheet open
+  const [isAppointmentOpen, setIsAppointmentOpen] = useState(false)
+
+  // Appointment form states
+  const [onlineClientName, setOnlineClientName] = useState("")
+  const [phoneNumber, setPhoneNumber] = useState("")
+  const [date, setDate] = useState("")
+  const [time, setTime] = useState("")
+  const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [successMsg, setSuccessMsg] = useState("")
+  const [errorMsg, setErrorMsg] = useState("")
+
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768)
     handleResize()
@@ -32,6 +46,51 @@ export default function TopNavbar() {
     theme === "dark"
       ? "bg-muted text-white"
       : "bg-white text-black border border-gray-300"
+
+  // API call function
+  async function submitAppointment() {
+    setLoading(true)
+    setSuccessMsg("")
+    setErrorMsg("")
+    try {
+      const res = await fetch(
+        "https://lawfirm-backend-01.vercel.app/api/v1/appointments/create-appointment",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            onlineClientName,
+            phoneNumber,
+            organization: "688062dc75fd8eee6306d0c4",
+            date,
+            time,
+            message,
+            status: "pending",
+            appointmentFrom: "online",
+          }),
+        }
+      )
+      if (!res.ok) throw new Error("Failed to create appointment")
+      setSuccessMsg("Appointment created successfully!")
+      // Clear form
+      setOnlineClientName("")
+      setPhoneNumber("")
+      setDate("")
+      setTime("")
+      setMessage("")
+      setIsAppointmentOpen(false)
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMsg(error.message)
+      } else {
+        setErrorMsg("Something went wrong")
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-border">
@@ -125,13 +184,21 @@ export default function TopNavbar() {
               }
               className="justify-start flex items-center text-lg font-medium hover:text-yellow-400 transition-colors"
             >
-              <CircleUser className="h-5 w-5 text-white" />
+              <CircleUser
+                className={`h-5 w-5 ${theme === "dark" ? "text-white" : "text-black"
+                  }`}
+              />
             </Button>
+
 
             {/* Appointment */}
             <div className="relative group">
-              <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg">
+              <Button
+                onClick={() => setIsAppointmentOpen(true)}
+                className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg"
+              >
                 <CalendarCheck className="h-5 w-5 text-white" />
+
               </Button>
               <div
                 className={`absolute bottom-[-2.5rem] left-1/2 -translate-x-1/2 text-xs px-2 py-1 rounded shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${tooltipStyle}`}
@@ -197,8 +264,15 @@ export default function TopNavbar() {
                     Log In
                   </Button>
 
-                  <Button className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg">
-                    <CalendarCheck className="h-5 w-5 text-white" />Appointment
+                  <Button
+                    className="bg-gradient-to-r from-orange-600 to-yellow-600 hover:from-yellow-700 hover:to-orange-700 text-white px-8 py-3 rounded-lg font-medium text-lg"
+                    onClick={() => {
+                      setIsAppointmentOpen(true)
+                      setIsOpen(false)
+                    }}
+                  >
+                    <CalendarCheck className="h-5 w-5 text-white" />
+                    Appointment
                   </Button>
 
                 </div>
@@ -207,6 +281,70 @@ export default function TopNavbar() {
           </div>
         )}
       </div>
+      {/* Appointment Modal/Sheet */}
+      <Sheet open={isAppointmentOpen} onOpenChange={setIsAppointmentOpen}>
+        <SheetTrigger />
+        <SheetContent className="max-w-md p-6">
+          <h2 className="text-2xl font-bold mb-4">Book an Appointment</h2>
+
+          {successMsg && (
+            <p className="text-green-600 mb-4">{successMsg}</p>
+          )}
+          {errorMsg && (
+            <p className="text-red-600 mb-4">{errorMsg}</p>
+          )}
+
+          <form
+            onSubmit={(e) => {
+              e.preventDefault()
+              submitAppointment()
+            }}
+            className="flex flex-col space-y-4"
+          >
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={onlineClientName}
+              onChange={(e) => setOnlineClientName(e.target.value)}
+              required
+              className="input input-bordered"
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+              className="input input-bordered"
+            />
+            <input
+              type="date"
+              placeholder="Date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              required
+              className="input input-bordered"
+            />
+            <input
+              type="time"
+              placeholder="Time"
+              value={time}
+              onChange={(e) => setTime(e.target.value)}
+              required
+              className="input input-bordered"
+            />
+            <textarea
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="input input-bordered resize-none"
+            />
+            <Button type="submit" disabled={loading}>
+              {loading ? "Booking..." : "Book Appointment"}
+            </Button>
+          </form>
+        </SheetContent>
+      </Sheet>
     </nav>
   )
 }
