@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-// Your achievements data
 const achievements = [
     {
         id: 1,
-        name: "Toronto Mortgage Group",
+        tittle: "Toronto Mortgage Group",
+        name: "Ethan Carter",
         feedback: "The automation platform revolutionized our client onboarding. Seamless and highly efficient!",
         date: "2025-03-12",
         description:
@@ -16,7 +16,8 @@ const achievements = [
     },
     {
         id: 2,
-        name: "Ontario Property Services Inc.",
+        tittle: "Ontario Property Services Inc.",
+        name: "Olivia Bennett",
         feedback: "We've seen remarkable improvements in service delivery and tenant satisfaction.",
         date: "2025-02-28",
         description:
@@ -25,7 +26,8 @@ const achievements = [
     },
     {
         id: 3,
-        name: "Montreal Realty Advisors",
+        tittle: "Montreal Realty Advisors",
+        name: "Liam Thompson",
         feedback: "The market dashboard helped our agents close deals faster with real-time insights.",
         date: "2025-01-19",
         description:
@@ -34,7 +36,8 @@ const achievements = [
     },
     {
         id: 4,
-        name: "Vancouver Tax & Accounting",
+        tittle: "Vancouver Tax & Accounting",
+        name: "Sophia Mitchell",
         feedback: "Filing season went smoother than ever. Our clients were impressed!",
         date: "2025-04-05",
         description:
@@ -64,25 +67,29 @@ const Achievement = () => {
         <div className="w-screen min-h-screen flex items-center justify-center bg-background/80 backdrop-blur-md py-20 px-6 transition-colors duration-500">
             <div className="max-w-6xl w-full grid md:grid-cols-[1fr_2fr] gap-10 md:gap-16 items-center transition-all duration-700">
 
-                {/* Left: Image (1/3 width on desktop) */}
+                {/* Left: Image */}
                 <div className="flex justify-center">
                     <Image
                         src={currentAchievement.image}
-                        alt={currentAchievement.name}
+                        alt={currentAchievement.tittle}
                         width={500}
-                        height={300}
-                        className="rounded-lg shadow-lg object-contain w-full h-auto invert dark:invert-0"
+                        height={350}
+                        className="rounded-lg shadow-lg object-contain w-[400px] h-[300px]" // fixed size
+                        priority
                     />
                 </div>
 
-                {/* Right: Text (2/3 width on desktop) */}
+                {/* Right: Text */}
                 <div className="space-y-4 text-center md:text-left">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
-                        {currentAchievement.name}
+                        {currentAchievement.tittle}
                     </h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                         {formatDate(currentAchievement.date)}
                     </p>
+                    <h2 className="text-3xl md:text-4xl font-bold text-red-700 dark:text-red-700">
+                        {currentAchievement.name}
+                    </h2>
                     <p className="text-lg text-gray-700 dark:text-gray-300">
                         {currentAchievement.description}
                     </p>
