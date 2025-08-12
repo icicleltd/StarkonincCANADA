@@ -61,7 +61,7 @@ export default function Page() {
     <div className="min-h-screen bg-background">
       <TopNavbar />
       <LeftSidebar />
-      <div className="pl-16">
+      <div className="md:pl-16">
         {/* Mobile: vertical scroll | Desktop: horizontal scroll */}
         <div
           id="scroll-container"

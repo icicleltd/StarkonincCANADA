@@ -14,7 +14,7 @@ const socialLinks = [
 
 export default function LeftSidebar() {
   return (
-    <div className="fixed left-0 top-20 bottom-0 w-16 bg-background/80 backdrop-blur-md border-border z-40">
+    <div className="fixed left-0 top-20 bottom-0 w-16 bg-background/80 backdrop-blur-md border-border z-40 hidden md:flex">
       <div className="flex flex-col items-center py-8 space-y-4">
         {/* Accent Line */}
         <div className="w-1 h-16 bg-gradient-to-b from-red-500 via-orange-500 to-yellow-400 rounded-full"></div>
@@ -35,10 +35,9 @@ export default function LeftSidebar() {
               </Button>
 
               {/* Tooltip on Right */}
-            <div className="absolute left-14 top-1/2 -translate-y-1/2 bg-muted text-muted-foreground text-xs px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">
-  {social.label}
-</div>
-
+              <div className="absolute left-14 top-1/2 -translate-y-1/2 bg-muted text-muted-foreground text-xs px-2 py-1 rounded shadow opacity-0 group-hover:opacity-100 transition duration-200 whitespace-nowrap">
+                {social.label}
+              </div>
             </div>
           ))}
         </div>
