@@ -16,17 +16,17 @@ const Contact = () => {
           <div className="space-y-8 hidden md:block">
             <div>
               <h3 className="text-xl font-semibold mb-4">Location</h3>
-              <p> 264 St. Niagara Falls, Ontario, Canada</p>
+              <p>703-100 Allstate Parkway, Markham, ON L3R 6H3 Canada</p>
             </div>
 
             <div className="space-y-4">
               <div>
                 <h3 className="text-xl font-semibold mb-2">E-mail</h3>
-                <p>connect@starkon.com</p>
+                <p>kafil.dlc@gmail.com</p>
               </div>
               <div>
                 <h3 className="text-xl font-semibold mb-2">Phone</h3>
-                <p>+905-351-4319</p>
+                <p>+1 647 713 9000</p>
               </div>
             </div>
           </div>
@@ -101,7 +101,9 @@ const Contact = () => {
 
         {/* Footer */}
         <div className="pt-2 border-t border-gray-200 text-center text-sm text-gray-600">
-          <p>Copyright © 2025 | All Rights Reserved   User Agreement   Privacy Policy</p>
+          <p>© 2025 Starkon Rights Reserved. Developed By
+            <span className='text-orange-600'> Icicle Corporation.</span>
+          </p>
         </div>
       </div>
     </div>
